@@ -31,16 +31,16 @@ public class MainActivity extends ActionBarActivity {
         mapView.getController().setCenter(new GeoPoint(-6.918477, 107.6093402));
         mapView.setTileSource(TileSourceFactory.MAPQUESTOSM);
         mapView.setUseDataConnection(false);
-        mapView.setMaxZoomLevel(17);
+        mapView.setMaxZoomLevel(18);
         mapView.setMinZoomLevel(13);
 
         /*
         *  Set the limit view of map
         * */
 
-        double boundNorth = -6.837806;
+        double boundNorth = -6.836443;
         double boundSouth = -6.971412;
-        double boundWest = 107.550659;
+        double boundWest = 107.549286;
         double boundEast = 107.744293;
         BoundingBoxE6 boxE6 = new BoundingBoxE6(boundNorth, boundEast, boundSouth, boundWest);
         mapView.setScrollableAreaLimit(boxE6);
