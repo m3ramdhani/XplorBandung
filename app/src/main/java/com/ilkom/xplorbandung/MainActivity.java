@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import org.osmdroid.DefaultResourceProxyImpl;
 import org.osmdroid.ResourceProxy;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.BoundingBoxE6;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
@@ -27,9 +28,26 @@ public class MainActivity extends ActionBarActivity {
         mapView.setBuiltInZoomControls(true);
         setContentView(mapView);
         mapView.getController().setZoom(15);
-        mapView.getController().setCenter(new GeoPoint(-6.918477,107.6093402));
+        mapView.getController().setCenter(new GeoPoint(-6.918477, 107.6093402));
         mapView.setTileSource(TileSourceFactory.MAPQUESTOSM);
         mapView.setUseDataConnection(false);
+        mapView.setMaxZoomLevel(17);
+        mapView.setMinZoomLevel(13);
+
+        /*
+        *  Set the limit view of map
+        * */
+
+        double boundNorth = -6.837806;
+        double boundSouth = -6.971412;
+        double boundWest = 107.550659;
+        double boundEast = 107.744293;
+        BoundingBoxE6 boxE6 = new BoundingBoxE6(boundNorth, boundEast, boundSouth, boundWest);
+        mapView.setScrollableAreaLimit(boxE6);
+
+        /*
+        *  Set the pointer of User's Location
+        * */
 
         Drawable marker = getResources().getDrawable(android.R.drawable.star_big_on);
         int markerWidth = marker.getIntrinsicWidth();
