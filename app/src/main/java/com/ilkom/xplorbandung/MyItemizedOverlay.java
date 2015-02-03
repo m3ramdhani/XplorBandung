@@ -14,9 +14,10 @@ import java.util.ArrayList;
 /**
  * Created by MohamadTri on 03/02/2015.
  */
+
 public class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
-    private ArrayList<OverlayItem> overlayItemList = new ArrayList<OverlayItem>();
+    private ArrayList<OverlayItem> overlayItemList = new ArrayList<>();
 
     public MyItemizedOverlay(Drawable pDefaultMarker, ResourceProxy pResourceProxy) {
         super(pDefaultMarker, pResourceProxy);
