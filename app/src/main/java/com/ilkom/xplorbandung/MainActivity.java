@@ -49,6 +49,9 @@ public class MainActivity extends ActionBarActivity {
         *  Set the pointer of User's Location
         * */
 
+        CheckLocation checkLocation = new CheckLocation();
+        checkLocation.getLocation();
+
         Drawable marker = getResources().getDrawable(android.R.drawable.star_big_on);
         int markerWidth = marker.getIntrinsicWidth();
         int markerHeight = marker.getIntrinsicHeight();
@@ -59,8 +62,8 @@ public class MainActivity extends ActionBarActivity {
         myItemizedOverlay = new MyItemizedOverlay(marker, resourceProxy);
         mapView.getOverlays().add(myItemizedOverlay);
 
-        GeoPoint myPoint1 = new GeoPoint(-6.918477,107.6093402);
-        myItemizedOverlay.addItem(myPoint1, "myPoint1", "myPoint1");
+        GeoPoint myPoint = new GeoPoint(checkLocation.getLatitude(),checkLocation.getLongitude());
+        myItemizedOverlay.addItem(myPoint, "myPoint", "myPoint");
     }
 
 
